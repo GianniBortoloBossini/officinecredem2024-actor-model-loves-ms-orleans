@@ -1,0 +1,34 @@
+@Orleans.Credem.UrlShortener.GrainsAndTests.WebApi_HostAddress = http://localhost:5213
+
+### CREAZIONE URL SHORTENED CON DURATA DI 15 SECONDI
+POST {{Orleans.Credem.UrlShortener.GrainsAndTests.WebApi_HostAddress}}/shorten
+Content-Type: application/json
+Accept: application/json
+
+{
+    "Url": "https://blog.codiceplastico.com",
+    "IsOneShoot": false,
+    "DurationInSeconds": 15
+}
+
+### TESTA QUI IL TUO URL!
+GET http://localhost:5213/go/BA50C254
+
+
+### CREAZIONE URL SHORTENED ONE-SHOT
+POST {{Orleans.Credem.UrlShortener.GrainsAndTests.WebApi_HostAddress}}/shorten
+Content-Type: application/json
+Accept: application/json
+
+{
+    "Url": "https://blog.codiceplastico.com",
+    "IsOneShoot": true,
+    "DurationInSeconds": 61
+}
+
+### TESTA QUI IL TUO URL!
+GET http://localhost:5213/go/DB002373
+
+### LETTURA STATISTICHE
+GET {{Orleans.Credem.UrlShortener.GrainsAndTests.WebApi_HostAddress}}/statistics
+Content-Type: application/json
